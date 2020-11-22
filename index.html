@@ -5,16 +5,15 @@
 <p>I'm hosted with GitHub Pages.</p>
 <p id="test"></p>
 <script type="text/javascript">
-    var apiUrl = 'https://pokeapi.co/api/v2/pokemon/ditto/';
+    var apiUrl = 'https://ow-api.com/v1/stats/pc/us/DrHeathen-1433/profile';
     fetch(apiUrl).then(response => {
       return response.json();
     }).then(data => {
-      // Work with JSON data here
+		document.getElementById("test").innerHTML = response.json;
       console.log(data);
     }).catch(err => {
-      // Do something for an error here
-	})
-	document.getElementById("test").innerHTML = response.json;
+		document.getElementById("test").innerHTML = err;
+	});
 </script>
 
 </body>
