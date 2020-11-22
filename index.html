@@ -3,16 +3,24 @@
 <body>
 <h1>Hello World!</h1>
 <p>I'm hosted with GitHub Pages.</p>
-<p id="test"></p>
+<p id="test1"></p>
+<p id="test2"></p>
+<p id="test3"></p>
 <script type="text/javascript">
-    var apiUrl = 'https://ow-api.com/v1/stats/pc/us/DrHeathen-1433/profile';
-    fetch(apiUrl).then(response => {
-      return response.json();
-    }).then(data => {
-		document.getElementById("test").innerHTML = response.json()[0];
-      console.log(data);
-    }).catch(err => {
-		document.getElementById("test").innerHTML = err;
+	var apiUrl = 'https://ow-api.com/v1/stats/pc/us/DrHeathen-1433/profile';
+	fetch(apiUrl).then(response => {
+		document.getElementById("test3").innerHTML = 'success';
+		//return response.json();
+		var txt = JSON.stringify(response[1]);//'{"competitiveStats":{"awards":{"cards":3,"medals":12,"medalsBronze":4,"medalsSilver":5,"medalsGold":3},"games":{"played":6,"won":2}},"endorsement":2,"endorsementIcon":"https://static.playoverwatch.com/svg/icons/endorsement-frames-3c9292c49d.svg#_2","gamesWon":3213,"icon":"https://d15f34w2p8l1cc.cloudfront.net/overwatch/d3e03d1b5b0b85f3cf98847cfd0a396a311a370363c46245e254ce2e3a040527.png","level":80,"levelIcon":"https://d15f34w2p8l1cc.cloudfront.net/overwatch/2c1464fb96d38839281c0bdb6e1a0cd06769782a5130609c13f6ca76fa358bcf.png","name":"DrHeathen#1433","prestige":13,"prestigeIcon":"https://d15f34w2p8l1cc.cloudfront.net/overwatch/1858704e180db3578839aefdb83b89054f380fbb3d4c46b3ee12d34ed8af8712.png","private":false,"quickPlayStats":{"awards":{"cards":556,"medals":2953,"medalsBronze":784,"medalsSilver":1011,"medalsGold":1158},"games":{"played":1168,"won":595}},"rating":3881,"ratingIcon":"https://d1u1mce87gyfbn.cloudfront.net/game/rank-icons/rank-MasterTier.png","ratings":[{"level":3881,"role":"support","roleIcon":"https://static.playoverwatch.com/img/pages/career/icon-support-46311a4210.png","rankIcon":"https://d1u1mce87gyfbn.cloudfront.net/game/rank-icons/rank-MasterTier.png"}]}'
+		var object = JSON.parse(txt);
+		document.getElementById("test2").innerHTML = object.competitiveStats.awards.cards;
+	}).then(data => {
+		document.getElementById("test1").innerHTML = 'success';
+		//document.getElementById("test2").innerHTML = data.json();//response.json()[0];
+		//console.log(data);
+	}).catch(err => {
+		document.getElementById("test1").innerHTML = 'failure';
+		document.getElementById("test2").innerHTML = err;
 	});
 </script>
 
