@@ -9,7 +9,7 @@
     fetch(apiUrl).then(response => {
       return response.json();
     }).then(data => {
-		document.getElementById("test").innerHTML = response.json;
+		document.getElementById("test").innerHTML = 'response.json';
       console.log(data);
     }).catch(err => {
 		document.getElementById("test").innerHTML = err;
